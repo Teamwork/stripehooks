@@ -17,10 +17,10 @@ There is an upstart script provided to start/stop the server on Ubuntu, and have
 
 In `events/register.go` add your event handlers to `RegisterEventHandlers()` function for any of the various events that Stripe send to your endpoint. You can see the list of events Stripe sends [here](https://stripe.com/docs/api#event_types). Here is an example of handling an `invoice.payment_succeeded` event. 
 
-```
-    // Example handle incoming hook for invoice.payment_succeeded event
-    registerEventHandler("invoice.payment_succeeded", func(event *stripe.Event) error {
-        fmt.Printf("Event %s handled, type %s\n", event.ID, event.Type)
-        return nil
-    })
+```go
+// Example handle incoming hook for invoice.payment_succeeded event
+registerEventHandler("invoice.payment_succeeded", func(event *stripe.Event) error {
+    fmt.Printf("Event %s handled, type %s\n", event.ID, event.Type)
+    return nil
+})
 ```
