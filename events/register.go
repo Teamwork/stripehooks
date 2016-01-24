@@ -16,14 +16,14 @@ type StripeWebhook struct {
 	Data     stripe.EventData
 }
 
-type handleEvent func(event *stripe.Event) (err error)
-type validateHook func(hook StripeWebhook) (event *stripe.Event, err error)
+type eventHandler func(event *stripe.Event) (err error)
+type validateHandler func(hook StripeWebhook) (event *stripe.Event, err error)
 
 // EventHandlers is a mapping of stripe events to their handleEvent functions
 var EventHandlers = make(map[string]handleEvent)
 
 // ValidationHandler is an
-var ValidationHandler validateHook
+var ValidationHandler validateHandler
 
 // RegisterEventHandlers is the place to add your handlers for each
 // event type you want to support from Stripe webhooks
@@ -42,8 +42,8 @@ func RegisterEventHandlers() {
 
 // RegisterEventHandler adds the handler to the list of handlers
 // It will overwrite handler if one exists for event already
-func RegisterEventHandler(event string, h handleEvent) {
-	eventHandlers[event] = h
+func RegisterEventHandler(event string, handleFunc eventHandler) {
+	eventHandlers[event] = handleFunc
 }
 
 // RegisterValidationHandler allows you to add your validation handler function here
@@ -59,8 +59,8 @@ func RegisterEventHandler(event string, h handleEvent) {
 //          ID:   hook.Id,
 //      }, nil
 // }
-func RegisterValidationHandler(h validateHook) {
-	validationHandler = h
+func RegisterValidationHandler(handleFunc validateHandler) {
+	validationHandler = handleFunc
 }
 
 // VerifyEventWithStripe verifies the event received via webhook with Stripe
