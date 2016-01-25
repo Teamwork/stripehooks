@@ -7,11 +7,15 @@ A server to handle [Stripe webhooks](https://stripe.com/docs/webhooks). Add your
 ## Run
 `go get github.com/teamwork/stripehook`
 
-`cd stripehook`
+`go run main.go` or `go build` && `./stripehook`
 
-`go run main.go`
+It accepts a port and a path part for configuring the endpoint e.g. `./stripehook --help`
 
-There is an upstart script provided to start/stop the server on Ubuntu, and have it recover from a crash automatically.  
+```
+Usage of ./stripehook:
+  -path="stripe": the endpoint to recieve webhooks on e.g. 'stripe' would be http://localhost:<port>/stripe
+  -port=8080: port number to bind the server to e.g. '8080' would be http://localhost:8080/<path>
+```
 
 ## Example
 
