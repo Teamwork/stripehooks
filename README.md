@@ -9,7 +9,7 @@ A server to handle [Stripe webhooks](https://stripe.com/docs/webhooks). Add your
 
 `go run main.go` or `go build && ./stripehook`
 
-It accepts a port and a path part for configuring the endpoint e.g. `./stripehook --help`
+This accepts a port and a path part for configuring the endpoint e.g. `./stripehook --help`
 
 ```
 Usage of ./stripehook:
