@@ -62,4 +62,4 @@ The only dependecies outside of the standard library are
 * "github.com/stripe/stripe-go"
 * "github.com/stripe/stripe-go/event"
 
-I would recommend vendoring the stripe dependecies. 
+I would recommend vendoring the stripe dependencies. 
