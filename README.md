@@ -1,15 +1,15 @@
 [![Build Status](https://travis-ci.org/Teamwork/stripehooks.svg?branch=master)](https://travis-ci.org/Teamwork/stripehooks)
 
-# stripehook
+# stripehooks
 
 A server to handle [Stripe webhooks](https://stripe.com/docs/webhooks). Add your own custom event handlers. 
 
 ## Run
 `go get github.com/teamwork/stripehook`
 
-`go run main.go` or `go build` && `./stripehook`
+`go run main.go` or `go build && ./stripehook`
 
-It accepts a port and a path part for configuring the endpoint e.g. `./stripehook --help`
+This accepts a port and a path part for configuring the endpoint e.g. `./stripehook --help`
 
 ```
 Usage of ./stripehook:
