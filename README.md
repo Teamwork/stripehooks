@@ -5,14 +5,14 @@
 A server to handle [Stripe webhooks](https://stripe.com/docs/webhooks). Add your own custom event handlers. 
 
 ## Run
-`go get github.com/teamwork/stripehook`
+`go get github.com/teamwork/stripehooks`
 
-`go run main.go` or `go build && ./stripehook`
+`go run main.go` or `go build && ./stripehooks`
 
-This accepts a port and a path part for configuring the endpoint e.g. `./stripehook --help`
+This accepts a port and a path part for configuring the endpoint e.g. `./stripehooks --help`
 
 ```
-Usage of ./stripehook:
+Usage of ./stripehooks:
   -path="stripe": the endpoint to recieve webhooks on e.g. 'stripe' would be http://localhost:<port>/stripe
   -port=8080: port number to bind the server to e.g. '8080' would be http://localhost:8080/<path>
 ```
