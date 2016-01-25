@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Teamwork/stripehook.svg?branch=master)](https://travis-ci.org/Teamwork/stripehook)
 
-# stripehook
+# stripehooks
 
 A server to handle [Stripe webhooks](https://stripe.com/docs/webhooks). Add your own custom event handlers. 
 
