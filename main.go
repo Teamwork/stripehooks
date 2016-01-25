@@ -11,7 +11,7 @@ import (
 	"strconv"
 
 	"github.com/stripe/stripe-go"
-	"github.com/teamwork/stripehook/events"
+	"github.com/teamwork/stripehooks/events"
 )
 
 var (
