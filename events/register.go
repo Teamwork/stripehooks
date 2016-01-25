@@ -27,7 +27,7 @@ func RegisterEventHandlers() {
 	})
 
 	RegisterEventHandler("invoice.payment_failed", func(event *stripe.Event) error {
-		// Exmaple, send email to customer
+		// Example, send email to customer
 		return nil
 	})
 }

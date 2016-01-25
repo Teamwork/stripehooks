@@ -46,7 +46,6 @@ func VerifyEventWithStripe(hook StripeWebhook) (*stripe.Event, error) {
 }
 ```
 
-
 ```go
 validationHandler = func(hook StripeWebhook) (*stripe.Event, error) {
      return &stripe.Event{
@@ -57,3 +56,10 @@ validationHandler = func(hook StripeWebhook) (*stripe.Event, error) {
      }, nil
 }
 ```
+
+## Dependencies
+The only dependecies outside of the standard library are
+* "github.com/stripe/stripe-go"
+* "github.com/stripe/stripe-go/event"
+
+I would recommend vendoring the stripe dependecies. 
