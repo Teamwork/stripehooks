@@ -21,9 +21,7 @@ var (
 
 func main() {
 
-	flag.IntVar(&port, "port", 8080, "port number to bind the server to e.g. '8080' would be http://localhost:8080/<path>")
-	flag.StringVar(&path, "path", "stripe", "the endpoint to recieve webhooks on e.g. 'stripe' would be http://localhost:<port>/stripe")
-	flag.Parse()
+	parseCommandLineArgs()
 
 	events.RegisterValidationHandler(events.VerifyEventWithStripe)
 	events.RegisterEventHandlers()
@@ -80,4 +78,19 @@ func parseBody(body io.Reader) (event *stripe.Event, err error) {
 	}
 	err = json.Unmarshal(b, &event)
 	return event, err
+}
+
+func parseCommandLineArgs() {
+	flag.IntVar(
+		&port,
+		"port",
+		8080, `port number to bind the server to e.g. '8080' would be http://localhost:8080/<path>`,
+	)
+	flag.StringVar(
+		&path,
+		"path",
+		"stripe",
+		"the endpoint to recieve webhooks on e.g. 'stripe' would be http://localhost:<port>/stripe",
+	)
+	flag.Parse()
 }
