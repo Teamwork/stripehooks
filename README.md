@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Teamwork/stripehook.svg?branch=master)](https://travis-ci.org/Teamwork/stripehook)
+[![Build Status](https://travis-ci.org/Teamwork/stripehooks.svg?branch=master)](https://travis-ci.org/Teamwork/stripehooks)
 
 # stripehook
 
