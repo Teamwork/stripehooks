@@ -7,7 +7,7 @@ A server to handle [Stripe webhooks](https://stripe.com/docs/webhooks). Add your
 ## Run
 `go get github.com/teamwork/stripehook`
 
-`go run main.go` or `go build` && `./stripehook`
+`go run main.go` or `go build && ./stripehook`
 
 It accepts a port and a path part for configuring the endpoint e.g. `./stripehook --help`
 
