@@ -2,6 +2,7 @@ package events
 
 // registerEventHandlers is the place to add your handlers for different Stripe hooks
 import (
+	"errors"
 	"fmt"
 
 	"github.com/stripe/stripe-go"
@@ -21,8 +22,18 @@ var ValidationHandler validateHandler
 // event type you want to support from Stripe webhooks
 func RegisterEventHandlers() {
 	// Example handle incoming hook for invoice.payment_succeeded event
+	// Shows how to get the data safely out of the map[string]interface{}
 	RegisterEventHandler("invoice.payment_succeeded", func(event *stripe.Event) error {
-		fmt.Printf("Event %s handled, type %s\n", event.ID, event.Type)
+		customer, ok := event.Data.Obj["customer"]
+		if !ok {
+			return errors.New("Could not find customer in event")
+		}
+		customer, ok = customer.(string)
+		if !ok {
+			return errors.New("Customer field was not expected type")
+		}
+
+		fmt.Printf("Event %s handled, type %s for customer %s\n", event.ID, event.Type, customer)
 		return nil
 	})
 
