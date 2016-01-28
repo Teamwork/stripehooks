@@ -2,6 +2,7 @@ language: go
 go:
   - 1.5.3
   - tip
+before_install: ./rename.sh
 script:
   - go vet main.go
   - go vet ./events
