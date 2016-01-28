@@ -3,6 +3,6 @@ go:
   - 1.5.3
   - tip
 script:
-  - go get -t -v ./...
-  - go vet ./...
-  - go test -v ./...
+  - go vet main.go
+  - go vet ./events
+  - go test ./events
